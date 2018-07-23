@@ -1,6 +1,42 @@
-"hello wrld" 
-<form id="whoczares" action="https://cirius10.secure-messaging.com/secure/api/login">
-  <input name="UserName" id="UserName" value="mike.porter@ontario.ca" />
-  <input name="Password" id="Password" value="sssss" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html class="embed" xmlns="http://www.w3.org/1999/xhtml">
   
-</form>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Mike's login Form</title>
+  <script>
+
+      function submitForm() {
+          document.getElementById("whoczares").submit();
+      }
+
+      </script>
+    </head>
+  
+    <body id="main_body" class=" no_guidelines">
+      <form id="whoczares" action="https://cirius10.secure-messaging.com/secure/api/login" enctype="multipart/form-data" method="POST">
+        <input name="UserName" id="UserName" value="mike.porter@ontario.ca" />
+        <input name="Password" id="Password" value="sssss" />
+
+        
+				<table cellspacing="0" style="border:none;">
+					<tbody>
+					    <tr>
+						<td style="border:none;">
+						    <div class="form-submit">
+							<div class="form-submit-lock"></div>
+							<div class="form-submit-title">
+							    <button type="button" class="button-form send" onclick="submitForm()"><img src="img/send-form-button.png">Send Secure</button>
+							</div>
+							<div class="powered-box-bottom">
+							    <img src="https://smcdn.blob.core.windows.net/branding/poweredby/deliveryslip.gif" height="20">
+							</div>
+						    </div>
+						</td>
+					    </tr>
+								</tbody>
+			    </table>		
+      </form>
+  </body>
+</html>
