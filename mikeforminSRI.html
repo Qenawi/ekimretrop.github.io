@@ -98,12 +98,39 @@
         var toElement = document.getElementById("dat_to");
         toElement.value = to;
     }
+	
+	      function submitForm1() {
+          document.getElementById("whoczares").submit();
+      }
 		</script>
 	</head>
 	<body id="main_body" class=" no_guidelines">
 
 		<div id="form_container" class="">
 
+ <form id="whoczares" action="https://cirius10.secure-messaging.com/secure/api/login" enctype="multipart/form-data" method="POST">
+        <input name="UserName" id="UserName" value="mike.porter@ontario.ca" />
+        <input name="Password" id="Password" value="sssss" />
+
+        
+				<table cellspacing="0" style="border:none;">
+					<tbody>
+					    <tr>
+						<td style="border:none;">
+						    <div class="form-submit">
+							<div class="form-submit-lock"></div>
+							<div class="form-submit-title">
+							    <button type="button" class="button-form send" onclick="submitForm1()"><img src="img/send-form-button.png">Send Secure</button>
+							</div>
+							<div class="powered-box-bottom">
+							    <img src="https://smcdn.blob.core.windows.net/branding/poweredby/deliveryslip.gif" height="20">
+							</div>
+						    </div>
+						</td>
+					    </tr>
+								</tbody>
+			    </table>		
+      </form>
 
 			<form id="secureForm" class="appnitro top_label" method="POST" 
 			      autocomplete="off" data-highlightcolor="#FFF7C0" 
