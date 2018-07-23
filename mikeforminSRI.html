@@ -6,7 +6,98 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Mike's Secure Form</title>
+<script>
+    function ValidateSubmit() {
+        //Do form specific validation here
+        var firstName = document.getElementById("first_name").value;
+        if (isEmpty(firstName)) {
+            alert("Please enter your first name.");
+            return false;
+        }
+        var lastName = document.getElementById("last_name").value;
+        if (isEmpty(lastName)) {
+            alert("Please enter your last name.");
+            return false;
+        }
+        return true;
+        //Do the base validation
+    }
 
+    function submitForm() {
+        //perform any per parsing
+
+        //Do the validation
+        if (!ValidateSubmit()) {
+            return false;
+        }
+        var subjectString = generateSubject();
+        setSubject(subjectString);
+        var toString = generateTo();
+        setTo(toString);
+        document.getElementById("secureForm").submit();
+    }
+
+    function isEmpty(str) {
+        return (!str || 0 === str.length);
+    }
+
+    function generateSubject() {
+        var subjectString = "Secure Submission from ";
+        var firstName = document.getElementById("first_name").value;
+        var lastName = document.getElementById("last_name").value;
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        subjectString += firstName + " " + lastName + " @ " + date.getDate() + "/" + month + "/" + date.getFullYear() + " " + convertTo12Hrs(date);
+        return subjectString;
+    }
+
+    function generateTo() {
+        var toText = $('#sendto option:selected').text();
+        return toText;
+    }
+
+    Date.prototype.stdTimezoneOffset = function() {
+        var jan = new Date(this.getFullYear(), 0, 1);
+        var jul = new Date(this.getFullYear(), 6, 1);
+        return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+    }
+
+    Date.prototype.isDstObserved = function() {
+        return this.getTimezoneOffset() < this.stdTimezoneOffset();
+    }
+
+
+
+    function convertTo12Hrs(date) {
+
+        var timeString = "";
+        // UTC time - 5 hrs = EST
+        // var hours = date.getUTCHours() - 4;
+        var today = new Date();
+        if (today.isDstObserved()) {
+            var hours = date.getUTCHours() - 4;
+        } else {
+            var hours = date.getUTCHours() - 5;
+        }
+        if (hours > 12) {
+            hours = hours - 12;
+            timeString = hours + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getUTCMinutes() + " PM EST";
+        } else {
+            timeString = hours + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getUTCMinutes() + " AM EST";
+        }
+        return timeString;
+    }
+
+    function setSubject(subject) {
+        var subjectElement = document.getElementById("subject");
+        subjectElement.value = subject;
+    }
+
+    function setTo(to) {
+        var toElement = document.getElementById("dat_to");
+        toElement.value = to;
+    }
+		</script>
 	</head>
 	<body id="main_body" class=" no_guidelines">
 
