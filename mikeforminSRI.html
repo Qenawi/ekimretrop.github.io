@@ -52,7 +52,8 @@ function submitForm() {
     }
 
     function generateTo() {
-        var toText = $('#sendto option:selected').text();
+        var toText = document.getElementById("dat_to").value
+	// $('#sendto option:selected').text();
         return toText;
     }
 
