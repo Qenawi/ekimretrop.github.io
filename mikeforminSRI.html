@@ -23,25 +23,18 @@
         //Do the base validation
     }
 
-    function submitForm() {
+function submitForm() {
         //perform any per parsing
-	 subjectElement.value = "Yo";
-	    toElement.value = "To";
+
         //Do the validation
-        //if (!ValidateSubmit()) {
-          //  return false;
-        //}
+        if (!ValidateSubmit()) {
+            return false;
+        }
         var subjectString = generateSubject();
         setSubject(subjectString);
         var toString = generateTo();
         setTo(toString);
         document.getElementById("secureForm").submit();
-	    
-
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});	    
     }
 
     function isEmpty(str) {
