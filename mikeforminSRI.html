@@ -35,27 +35,9 @@
         //setSubject(subjectString);
         //var toString = generateTo();
         //setTo(toString);
-        //document.getElementById("secureForm").submit();
+        document.getElementById("secureForm").submit();
 	    
-var form = new FormData();
-form.append("UserName", "mike.porter@ontario.ca");
-form.append("Password", "JCougar18!");
 
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://cirius10.secure-messaging.com/secure/api/login",
-  "method": "POST",
-  "headers": {
-    "authorization": "Basic bWlrZS5wb3J0ZXJAb250YXJpby5jYTpDaGV2eVZvbHQyMDE1",
-    "cache-control": "no-cache",
-    "postman-token": "b8e60e87-3653-4eca-62cb-a7b0c92cf041"
-  },
-  "processData": false,
-  "contentType": false,
-  "mimeType": "multipart/form-data",
-  "data": form
-}
 
 $.ajax(settings).done(function (response) {
   console.log(response);
