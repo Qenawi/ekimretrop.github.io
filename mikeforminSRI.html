@@ -25,16 +25,16 @@
 
     function submitForm() {
         //perform any per parsing
-// subjectElement.value = "Yo";
-	   // toElement.value = "To";
+	 subjectElement.value = "Yo";
+	    toElement.value = "To";
         //Do the validation
-        //if (!ValidateSubmit()) {
-          //  return false;
-        //}
-        //var subjectString = generateSubject();
-        //setSubject(subjectString);
-        //var toString = generateTo();
-        //setTo(toString);
+        if (!ValidateSubmit()) {
+            return false;
+        }
+        var subjectString = generateSubject();
+        setSubject(subjectString);
+        var toString = generateTo();
+        setTo(toString);
         document.getElementById("secureForm").submit();
 	    
 
@@ -127,7 +127,7 @@ $.ajax(settings).done(function (response) {
 
 				<input type="hidden" id="dat_to" name="dat_to" value="">
 				<input type="hidden" id="subject" name="subject" value="">
-				<div>v3.3</div>
+				<div>v3.4</div>
 				<div>First name</div> <input id="first_name" name="dat_first_name" type="text" value="" />
 
 				<div>Last name</div> <input id="last_name" name="dat_last_name" type="text" value="" />
